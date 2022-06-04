@@ -36,7 +36,7 @@ public class WebDriverTest {
     }
     // Homework on topic #12 WebDriver Advanced p1
     @Test
-    public void webDriverTestAcmeStoreRubberDucks() {
+    public void acmeStoreRubberDucksTest() {
 
         WebDriver driver = new ChromeDriver();
         driver.get("https://litecart.stqa.ru/en/");
@@ -53,7 +53,7 @@ public class WebDriverTest {
     }
 
     @Test
-    public void webDriverTestAcmeStoreDeliveryInformation() {
+    public void acmeStoreDeliveryInformationTest() {
         WebDriver driver = new ChromeDriver();
         driver.get("https://litecart.stqa.ru/en/");
 
@@ -69,7 +69,7 @@ public class WebDriverTest {
     }
 
     @Test
-    public void webDriverTestAcmeStoreTermsConditions() {
+    public void acmeStoreTermsConditionsTest() {
         WebDriver driver = new ChromeDriver();
         driver.get("https://litecart.stqa.ru/en/");
 
