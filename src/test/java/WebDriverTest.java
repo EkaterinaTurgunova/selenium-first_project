@@ -192,4 +192,105 @@ public class WebDriverTest {
 
         driver.close();
     }
+
+    // Homework on topic #13 WebDriver Advanced p2
+    @Test
+    public void acmeStoreNameSortingTest() {
+        WebDriver driver = new ChromeDriver();
+        driver.get("https://litecart.stqa.ru/en/");
+
+        WebElement rubberDucks = driver.findElement(By
+                .cssSelector("#site-menu>ul>.category-1>a"));
+        Actions builder = new Actions(driver);
+        builder.moveToElement(rubberDucks).perform();
+        WebElement subcategory = driver.findElement(By
+                .cssSelector("#site-menu>ul>.category-1>ul>.category-2>a"));
+        subcategory.click();
+
+        WebElement nameButton = driver.findElement(By.xpath("//a[text()='Name']"));
+        nameButton.click();
+
+        ArrayList<WebElement> webList = new ArrayList<>(driver.findElements(By.cssSelector(".name")));
+        for (WebElement webDucks : webList) {
+            System.out.println(webDucks.getText());
+        }
+        ArrayList<String> textList = (ArrayList<String>) webList.stream().map(WebElement::getText)
+                .collect(Collectors.toList());
+
+        ArrayList<String> cloneList = (ArrayList<String>)textList.clone();
+
+        Collections.sort(cloneList);
+        Assert.assertEquals(textList, cloneList);
+
+        driver.close();
+    }
+
+    @Test
+    public void acmeStorePriceSortingTest() {
+        WebDriver driver = new ChromeDriver();
+        driver.get("https://litecart.stqa.ru/en/");
+
+        WebElement rubberDucks = driver.findElement(By.cssSelector("#site-menu>ul>.category-1>a"));
+        Actions builder = new Actions(driver);
+        builder.moveToElement(rubberDucks).perform();
+        WebElement subcategory = driver.findElement(By
+                .cssSelector("#site-menu>ul>.category-1>ul>.category-2>a"));
+        subcategory.click();
+
+        WebElement nameButton = driver.findElement(By.xpath("//a[text()='Name']"));
+        nameButton.click();
+
+        WebElement priceButton = driver.findElement(By.xpath("//a[text()='Price']"));
+        priceButton.click();
+
+        ArrayList<WebElement> webList = new ArrayList<>(driver.findElements(By
+                .cssSelector(".price, .campaign-price")));
+        for (WebElement webDucks : webList) {
+            System.out.println(webDucks.getText());
+        }
+        ArrayList<String> textList = (ArrayList<String>) webList.stream().map(WebElement::getText)
+                .collect(Collectors.toList());
+
+        ArrayList<String> cloneList = (ArrayList<String>)textList.clone();
+        Collections.sort(cloneList);
+
+        Assert.assertEquals(textList, cloneList);
+
+        driver.close();
+    }
+
+    @Test
+    public void acmeStoreStickerSaleTest() {
+        WebDriver driver = new ChromeDriver();
+        driver.get("https://litecart.stqa.ru/en/");
+
+        WebElement rubberDucks = driver.findElement(By.cssSelector("#site-menu>ul>.category-1>a"));
+        Actions builder = new Actions(driver);
+        builder.moveToElement(rubberDucks).perform();
+
+        WebElement yellowDuck = driver.findElement(By.cssSelector(".link[title='Yellow Duck']"));
+        WebElement sticker = yellowDuck.findElement(By.cssSelector(".sticker.sale"));
+        String stickerText = sticker.getText();
+
+        Assert.assertEquals(stickerText, "SALE");
+
+        driver.close();
+    }
+
+    @Test
+    public void acmeStoreStickerNewTest() {
+        WebDriver driver = new ChromeDriver();
+        driver.get("https://litecart.stqa.ru/en/");
+
+        WebElement homePage = driver.findElement(By.cssSelector(".fa.fa-home"));
+        homePage.click();
+
+        WebElement greenDuck = driver.findElement(By.cssSelector(".link[title='Green DucK']"));
+        WebElement sticker = greenDuck.findElement(By.cssSelector(".sticker.new"));
+        String stickerText = sticker.getText();
+
+        Assert.assertEquals(stickerText, "NEW");
+
+        driver.close();
+    }
 }
