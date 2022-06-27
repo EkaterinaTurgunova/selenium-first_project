@@ -13,14 +13,6 @@ public class SiteMenu {
     private static By saleLocator = By.cssSelector(".page-5");
     private static By subcategoryLocator = By.cssSelector("#site-menu>ul>.category-1>ul>.category-2>a");
 
-//    private WebDriver driver;
-//    private Actions builder;
-//
-//
-//    public SiteMenu (WebDriver driver, Actions builder) {
-//        this.driver = driver;
-//        this.builder = builder;
-//    }
 
     public static void clickHomePageButton(WebDriver driver) {
         driver.findElement(homePageLocator).click();

@@ -1,16 +1,11 @@
-package pageobject.object;
+package pageobject.staticpo;
 
 import org.openqa.selenium.WebDriver;
 import org.testng.Assert;
 
 public class Subcategory {
 
-    private WebDriver driver;
-
-    public Subcategory(WebDriver driver) {
-        this.driver = driver;
-    }
-    public void successTransition() {
+    public static void successTransition(WebDriver driver) {
         Assert.assertEquals(driver.getTitle(), "Subcategory | My Store1");
     }
 

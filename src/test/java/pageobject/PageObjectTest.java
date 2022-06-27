@@ -3,11 +3,18 @@ package pageobject;
 import org.openqa.selenium.interactions.Actions;
 import org.testng.annotations.Test;
 import pageobject.object.*;
+import pageobject.object.Filter;
+import pageobject.object.HomePage;
+import pageobject.object.RubberDuck;
+import pageobject.object.Sale;
+import pageobject.object.SiteMenu;
+import pageobject.object.Subcategory;
+import pageobject.object.TermsAndConditions;
 
 public class PageObjectTest extends TestBase {
 
     @Test
-    public void siteMenuTest() {
+    public void siteMenuTest() throws Exception {
 
         Actions builder = new Actions(driver);
         SiteMenu siteMenu = new SiteMenu(driver, builder);
@@ -37,7 +44,7 @@ public class PageObjectTest extends TestBase {
         subcategory.successTransition();
     }
     @Test
-    public void filterTest() {
+    public void filterTest() throws Exception {
 
         Actions builder = new Actions(driver);
         Filter filter = new Filter(driver);
@@ -53,7 +60,7 @@ public class PageObjectTest extends TestBase {
     }
 
     @Test
-    public void yellowDuckStickerTest() {
+    public void yellowDuckStickerTest() throws Exception {
         YellowDuck yellowDuck = new YellowDuck(driver);
         Actions builder = new Actions(driver);
         SiteMenu siteMenu = new SiteMenu(driver, builder);
@@ -63,7 +70,7 @@ public class PageObjectTest extends TestBase {
     }
 
     @Test
-    public void greenDuckStickerTest() {
+    public void greenDuckStickerTest() throws Exception {
         GreenDuck greenDuck = new GreenDuck(driver);
         Actions builder = new Actions(driver);
         SiteMenu siteMenu = new SiteMenu(driver, builder);
@@ -73,7 +80,7 @@ public class PageObjectTest extends TestBase {
     }
 
     @Test
-    public void blueDuckStickerTest() {
+    public void blueDuckStickerTest() throws Exception {
         BlueDuck blueDuck = new BlueDuck(driver);
         Actions builder = new Actions(driver);
         SiteMenu siteMenu = new SiteMenu(driver, builder);

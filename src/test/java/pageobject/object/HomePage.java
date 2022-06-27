@@ -15,3 +15,4 @@ public class HomePage {
         Assert.assertEquals(driver.getTitle(), "Online Store | My Store1");
     }
 }
+

@@ -2,41 +2,37 @@ package pageobject;
 
 import org.openqa.selenium.interactions.Actions;
 import org.testng.annotations.Test;
-import org.testng.asserts.SoftAssert;
-import pageobject.staticpo.Filter;
-import pageobject.staticpo.SiteMenu;
+import pageobject.staticpo.*;
 
 
 public class StaticPOTest extends TestBase {
 
-    static SoftAssert softAssert = new SoftAssert();
     @Test
     public static void siteMenuTest() {
 
         Actions builder = new Actions(driver);
 
         SiteMenu.clickHomePageButton(driver);
-        softAssert.assertEquals(driver.getTitle(),"Online Store | My Store1");
+        HomePage.successTransition(driver);
 
         SiteMenu.clickRubberDuckButton(driver);
-        softAssert.assertEquals(driver.getTitle(),"Rubber Ducks | My Store1");
+        RubberDuck.successTransition(driver);
 
         SiteMenu.clickDeliveryInformationButton(driver);
-        softAssert.assertEquals(driver.getTitle(),"Delivery Information | My Store1");
+        DeliveryInformation.successTransition(driver);
 
         SiteMenu.clickTermsAndConditionsButton(driver);
-        softAssert.assertEquals(driver.getTitle(),"Terms & Conditions | My Store1");
+        TermsAndConditions.successTransition(driver);
 
         SiteMenu.clickSaleButton(driver);
-        softAssert.assertEquals(driver.getTitle(),"4 | My Store1");
+        Sale.successTransition(driver);
 
         SiteMenu.clickSubcategoryButton(driver, builder);
-        softAssert.assertEquals(driver.getTitle(), "Subcategory | My Store1");
+        Subcategory.successTransition(driver);
 
-        softAssert.assertAll();
     }
     @Test
-    public void filterTest() {
+    public static void filterTest() {
 
         Actions builder = new Actions(driver);
 
@@ -47,6 +43,23 @@ public class StaticPOTest extends TestBase {
 
         Filter.clickPriceButton(driver);
         Filter.priceSortCheck(driver);
+    }
+    @Test
+    public static void yellowDuckStickerTest() throws Exception {
+        Actions builder = new Actions(driver);
+        SiteMenu.clickSubcategoryButton(driver,builder);
+        YellowDuck.stickerCheck(driver);
+
+    }
+    @Test
+    public static void greenDuckStickerTest() throws Exception {
+        SiteMenu.clickHomePageButton(driver);
+        GreenDuck.stickerCheck(driver);
+    }
+    @Test
+    public static void blueDuckStickerTest() throws Exception {
+        SiteMenu.clickHomePageButton(driver);
+        BlueDuck.stickerCheck(driver);
     }
 }
 

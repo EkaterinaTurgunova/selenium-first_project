@@ -1,17 +1,12 @@
 package pageobject.object;
 
-import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.interactions.Actions;
 
+import static pageobject.helpers.Locators.getLocator;
+
 public class SiteMenu {
-    private By homePageLocator = By.cssSelector(".general-0");
-    private By rubberDuckLocator = By.cssSelector("#site-menu>ul>.category-1>a");
-    private By deliveryInformationLocator = By.cssSelector(".page-2>a");
-    private By termsAndConditionsLocator = By.cssSelector(".page-4>a");
-    private By saleLocator = By.cssSelector(".page-5");
-    private By subcategoryLocator = By.cssSelector("#site-menu>ul>.category-1>ul>.category-2>a");
 
     private WebDriver driver;
     private Actions builder;
@@ -22,28 +17,28 @@ public class SiteMenu {
         this.builder = builder;
     }
 
-    public void clickHomePageButton() {
-        driver.findElement(homePageLocator).click();
+    public void clickHomePageButton() throws Exception {
+        driver.findElement(getLocator("SiteMenu.homePageLocator")).click();
     }
 
-    public void clickRubberDuckButton() {
-        driver.findElement(rubberDuckLocator).click();
+    public void clickRubberDuckButton() throws Exception {
+        driver.findElement(getLocator("SiteMenu.rubberDuckLocator")).click();
     }
 
-    public void clickDeliveryInformationButton() {
-        driver.findElement(deliveryInformationLocator).click();
+    public void clickDeliveryInformationButton() throws Exception {
+        driver.findElement(getLocator("SiteMenu.deliveryInformationLocator")).click();
     }
 
-    public void clickTermsAndConditionsButton() {
-        driver.findElement(termsAndConditionsLocator).click();
+    public void clickTermsAndConditionsButton() throws Exception {
+        driver.findElement(getLocator("SiteMenu.termsAndConditionsLocator")).click();
     }
 
-    public void clickSaleButton() {
-        driver.findElement(saleLocator).click();
+    public void clickSaleButton() throws Exception {
+        driver.findElement(getLocator("SiteMenu.saleLocator")).click();
     }
-    public void clickSubcategoryButton() {
-       WebElement rubberDuck = driver.findElement(rubberDuckLocator);
-       builder.moveToElement(rubberDuck).perform();
-       driver.findElement(subcategoryLocator).click();
+    public void clickSubcategoryButton() throws Exception {
+        WebElement rubberDuck = driver.findElement(getLocator("SiteMenu.rubberDuckLocator"));
+        builder.moveToElement(rubberDuck).perform();
+        driver.findElement(getLocator("SiteMenu.subcategoryLocator")).click();
     }
 }
