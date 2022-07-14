@@ -9,6 +9,8 @@ import java.util.ArrayList;
 import java.util.Collections;
 import java.util.stream.Collectors;
 
+import static pageobject.helpers.WebDriverContainer.getDriver;
+
 public class Filter {
     private static By nameLocator = By.xpath("//a[text()='Name']");
     private static By priceLocator = By.xpath("//a[text()='Price']");
@@ -19,20 +21,20 @@ public class Filter {
     private static By priceSortedLocator = By.cssSelector(".price, .campaign-price");
 
 
-    public static void clickNameButton(WebDriver driver) {
-        driver.findElement(nameLocator).click();
+    public static void clickNameButton() {
+        getDriver().findElement(nameLocator).click();
     }
-    public static void clickPriceButton(WebDriver driver) {
-        driver.findElement(priceLocator).click();
+    public static void clickPriceButton() {
+        getDriver().findElement(priceLocator).click();
     }
-    public static void clickPopularityButton(WebDriver driver) {
-        driver.findElement(popularityLocator).click();
+    public static void clickPopularityButton() {
+        getDriver().findElement(popularityLocator).click();
     }
-    public static void clickDateButton(WebDriver driver) {
-        driver.findElement(dateLocator).click();
+    public static void clickDateButton() {
+        getDriver().findElement(dateLocator).click();
     }
-    public static void nameSortCheck(WebDriver driver) {
-        ArrayList<WebElement> webList = new ArrayList(driver.findElements(nameSortedLocator));
+    public static void nameSortCheck() {
+        ArrayList<WebElement> webList = new ArrayList(getDriver().findElements(nameSortedLocator));
         for (WebElement webDucks : webList) {
             System.out.println(webDucks.getText());
         }
@@ -44,8 +46,8 @@ public class Filter {
         Collections.sort(cloneList);
         Assert.assertEquals(textList, cloneList);
     }
-    public static void priceSortCheck(WebDriver driver) {
-        ArrayList<WebElement> webList = new ArrayList(driver.findElements(priceSortedLocator));
+    public static void priceSortCheck() {
+        ArrayList<WebElement> webList = new ArrayList(getDriver().findElements(priceSortedLocator));
         for (WebElement webDucks : webList) {
             System.out.println(webDucks.getText());
         }

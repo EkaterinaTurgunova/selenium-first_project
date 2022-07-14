@@ -5,11 +5,12 @@ import org.openqa.selenium.WebElement;
 import org.testng.Assert;
 
 import static pageobject.helpers.Locators.getLocator;
+import static pageobject.helpers.WebDriverContainer.getDriver;
 
 public class BlueDuck {
 
-    public static void stickerCheck(WebDriver driver) throws Exception {
-        WebElement blueDuck = driver.findElement(getLocator("BlueDusk.blueDuckLocator"));
+    public static void stickerCheck() throws Exception {
+        WebElement blueDuck = getDriver().findElement(getLocator("BlueDusk.blueDuckLocator"));
         WebElement sticker = blueDuck.findElement(getLocator("BlueDusk.blueDuckStickerLocator"));
         String stickerText = sticker.getText();
 

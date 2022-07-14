@@ -12,23 +12,23 @@ public class StaticPOTest extends TestBase {
 
         Actions builder = new Actions(driver);
 
-        SiteMenu.clickHomePageButton(driver);
-        HomePage.successTransition(driver);
+        SiteMenu.clickHomePageButton();
+        HomePage.successTransition();
 
-        SiteMenu.clickRubberDuckButton(driver);
-        RubberDuck.successTransition(driver);
+        SiteMenu.clickRubberDuckButton();
+        RubberDuck.successTransition();
 
-        SiteMenu.clickDeliveryInformationButton(driver);
-        DeliveryInformation.successTransition(driver);
+        SiteMenu.clickDeliveryInformationButton();
+        DeliveryInformation.successTransition();
 
-        SiteMenu.clickTermsAndConditionsButton(driver);
-        TermsAndConditions.successTransition(driver);
+        SiteMenu.clickTermsAndConditionsButton();
+        TermsAndConditions.successTransition();
 
-        SiteMenu.clickSaleButton(driver);
-        Sale.successTransition(driver);
+        SiteMenu.clickSaleButton();
+        Sale.successTransition();
 
-        SiteMenu.clickSubcategoryButton(driver, builder);
-        Subcategory.successTransition(driver);
+        SiteMenu.clickSubcategoryButton(builder);
+        Subcategory.successTransition();
 
     }
     @Test
@@ -36,30 +36,30 @@ public class StaticPOTest extends TestBase {
 
         Actions builder = new Actions(driver);
 
-        SiteMenu.clickSubcategoryButton(driver, builder);
+        SiteMenu.clickSubcategoryButton(builder);
 
-        Filter.clickNameButton(driver);
-        Filter.nameSortCheck(driver);
+        Filter.clickNameButton();
+        Filter.nameSortCheck();
 
-        Filter.clickPriceButton(driver);
-        Filter.priceSortCheck(driver);
+        Filter.clickPriceButton();
+        Filter.priceSortCheck();
     }
     @Test
     public static void yellowDuckStickerTest() throws Exception {
         Actions builder = new Actions(driver);
-        SiteMenu.clickSubcategoryButton(driver,builder);
-        YellowDuck.stickerCheck(driver);
+        SiteMenu.clickSubcategoryButton(builder);
+        YellowDuck.stickerCheck();
 
     }
     @Test
     public static void greenDuckStickerTest() throws Exception {
-        SiteMenu.clickHomePageButton(driver);
-        GreenDuck.stickerCheck(driver);
+        SiteMenu.clickHomePageButton();
+        GreenDuck.stickerCheck();
     }
     @Test
     public static void blueDuckStickerTest() throws Exception {
-        SiteMenu.clickHomePageButton(driver);
-        BlueDuck.stickerCheck(driver);
+        SiteMenu.clickHomePageButton();
+        BlueDuck.stickerCheck();
     }
 }
 

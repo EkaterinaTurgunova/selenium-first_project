@@ -43,6 +43,7 @@ public class PageObjectTest extends TestBase {
         siteMenu.clickSubcategoryButton();
         subcategory.successTransition();
     }
+
     @Test
     public void filterTest() throws Exception {
 
